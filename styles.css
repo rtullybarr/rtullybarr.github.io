@@ -3,5 +3,8 @@ body{
 	background-color: #9999FF;
 	font-size: 14pt;
 	color: #000077;
-	margin-left: length = 100px
+}
+
+p{
+	margin-left: 500px
 }
