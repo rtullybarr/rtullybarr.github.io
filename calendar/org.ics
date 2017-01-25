@@ -1,0 +1,69 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+X-WR-CALNAME:OrgMode
+PRODID:-////Emacs with Org mode//EN
+X-WR-TIMEZONE:Pacific Standard Time
+X-WR-CALDESC:
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTAMP:20170125T062121Z
+UID:TS1-6925c384-bd3c-43f7-bef8-e374976678cc
+DTSTART;VALUE=DATE:20170112
+DTEND;VALUE=DATE:20170113
+SUMMARY:Software Metrics
+DESCRIPTION:Lecture 6 <2017-01-12 Thu>\n\nExamples of maintainability metri
+ cs\n• Lines of code\n• Degree of coupling between modules\n• Bugs\netc.
+CATEGORIES:seng371-notes
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20170125T062122Z
+UID:TS1-39006b47-e108-47c2-960a-51f9ff4b5e9c
+DTSTART;VALUE=DATE:20170116
+DTEND;VALUE=DATE:20170117
+SUMMARY:SML Pattern Matching
+DESCRIPTION:Lecture 3 <2017-01-16 Mon>\n\nData types:\n┌────\n│ datatype my
+ type =\n│  TwoInts of int*int\n│ | Str of string\n│ | Pizza\n└────\n\nfor 
+ printing:\n┌────\n│ (print "abc"l 5) => 5\n└────\n\nData type advantages:\
+ n• Cannot duplicate a case: compiler error\n• Cannot forget a case: compil
+ er warning\n\nexpression tree\n\n┌────\n│ datatype exp = Constant of int\n
+ │   | Negate of exp\n│   | Add of exp * exp\n│   | Multiply of exp * exp\n
+ │\n│ val tree = Add (Constant(10+9)\, Negate (Constant 4))\n└────\n\nResul
+ ting tree:\n\n Add / \\ Constant 19 Negate \\ Constant 4\n\nPattern matchi
+ ng can be used in let-expressions like so\n\n┌────\n│ fun sum_triple tripl
+ e =\n│   let\n│     val (x\,y\,z) = triple\n│   in\n│     x + y + z\n│   e
+ nd\n│\n│ val param = (1\,2\,3)\n│\n│ val result = sum_triple(param)\n└────
+ \n\nSource code block shortcut: <sTAB\n\nSML: No automatic type conversion
+ \n\n┌────\n│ fun sum_triple (x\,y\,z) =\n│   x + y + z + 0.0\n│\n│ val sum
+  = sum_triple(1\,2\,3)\n└────\n\nIn SML\, every function takes exactly one
+  argument\, which is a tuple.\nSo you can do cute things:\n\n┌────\n│ fun 
+ rotate_left(x\,y\,z) = (y\, z\, x)\n│ fun rotate_right(x\,y\,z) = rotate_l
+ eft(rotate_left(x\,y\,z))\n│\n│ val rotated_left = rotate_left(1\,2\,3)\n│
+  val rotated_right = rotate_right(1\,2\,3)\n└────\n\nZip/unzip 3 lists:\n\
+ n┌────\n│ exception lengthMisMatch\n│\n│ fun zip3 lists =\n│    case lists
+  of\n│      ([]\,[]\,[]) => []  (* all empty *)\n│    | (hd1::tl1\,hd2::tl
+ 2\,hd3::tl3) =>\n│        hd1::hd2::hd3::zip3(tl1\,tl2\,tl3)\n│    | _ => 
+ raise lengthMisMatch\n│\n│ val zipped = zip3([1\,2\,3]\,[4\,5\,6]\,[7\,8\,
+ 9])\n└────
+CATEGORIES:csc330-notes
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20170125T062122Z
+UID:TS1-2d310175-f9f0-40ab-a561-4bee087d8eae
+DTSTART;VALUE=DATE:20170118
+DTEND;VALUE=DATE:20170119
+SUMMARY:Tail Recursion
+DESCRIPTION:Lecture 4 <2017-01-18 Wed>
+CATEGORIES:csc330-notes
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20170125T062122Z
+UID:TS1-e65c123a-a07f-4067-9c88-e3818c796c5e
+DTSTART;VALUE=DATE:20170123
+DTEND;VALUE=DATE:20170124
+SUMMARY:First-class functions and Currying
+DESCRIPTION:<2017-01-23 Mon>\n\nFirst class functions are treated as variab
+ les\n\n┌────\n│ fun double x = 2*x\n│ fun incr x = x+1\n│\n│ val a_tuple\n
+ └────
+CATEGORIES:csc330-notes
+END:VEVENT
+END:VCALENDAR
